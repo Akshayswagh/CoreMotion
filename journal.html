@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoreMotion Journal | Evidence-Based Physiotherapy Insights</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        :root {
+            --teal-primary: #007F89;
+            --teal-dark: #006670;
+            --teal-light: #4da7b1;
+            --sage-green: #a7c4b5;
+            --sage-light: #d1e2d9;
+            --dusty-blue: #A9BED0;
+            --warm-gray: #f8f9fa;
+            --charcoal: #2a2a2a;
+            --off-white: #FAFAFA;
+            --text-dark: #343a40;
+            --text-light: #6c757d;
+        }
+
+
+
+     
+
+
+
+    
+      
+
+        .btn-outline-teal {
+            border: 2px solid var(--teal-primary);
+            color: var(--teal-primary);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.4s ease;
+        }
+
+        .btn-outline-teal:hover {
+            background-color: var(--teal-primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Hero Section */
+        .journal-hero {
+            min-height: 70vh;
+            background: linear-gradient(135deg, var(--teal-primary) 0%, var(--sage-green) 50%, var(--off-white) 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 100px;
+        }
+
+        .journal-hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            color: white;
+        }
+
+        .journal-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .journal-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Featured Articles */
+        .featured-article {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            background: white;
+            height: 100%;
+        }
+
+        .featured-article:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .featured-image {
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .article-content {
+            padding: 2rem;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .category-tag {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 1rem;
+        }
+
+        .tag-digital {
+            background-color: var(--teal-primary);
+            color: white;
+        }
+
+        .tag-lifestyle {
+            background-color: var(--sage-green);
+            color: white;
+        }
+
+        .tag-ergonomics {
+            background-color: var(--dusty-blue);
+            color: white;
+        }
+
+        .tag-pain {
+            background-color: #e9c46a;
+            color: var(--charcoal);
+        }
+
+        /* Article Grid */
+        .article-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            background: white;
+            height: 100%;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .article-thumbnail {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .article-card-content {
+            padding: 1.5rem;
+        }
+
+        /* Insights Section */
+        .insights-section {
+            background-color: white;
+            padding: 80px 0;
+        }
+
+        .insight-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+            border-left: 4px solid var(--teal-primary);
+        }
+
+        .insight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .insight-icon {
+            font-size: 1.5rem;
+            color: var(--teal-primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Subscribe Section */
+        .subscribe-section {
+            background: linear-gradient(135deg, var(--sage-light) 0%, var(--off-white) 100%);
+            padding: 80px 0;
+        }
+
+        .subscribe-form {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--charcoal);
+            color: white;
+            padding: 80px 0 30px;
+        }
+
+        .footer-heading {
+            color: var(--sage-green);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-heading:after {
+            content: "";
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background: var(--sage-green);
+            bottom: -8px;
+            left: 0;
+        }
+
+        .footer a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: var(--sage-green);
+            padding-left: 5px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: var(--teal-primary);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 991.98px) {
+            .navbar-nav {
+                text-align: center;
+                padding: 1rem 0;
+            }
+
+            .navbar-toggler {
+                border: none;
+                padding: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .journal-hero {
+                padding: 120px 0 60px;
+                text-align: center;
+                min-height: 60vh;
+            }
+
+            .journal-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .journal-hero p {
+                font-size: 1.1rem;
+            }
+
+            .featured-image, .article-thumbnail {
+                height: 200px;
+            }
+
+            .article-content, .article-card-content {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .journal-hero h1 {
+                font-size: 2rem;
+            }
+
+            .journal-hero p {
+                font-size: 1rem;
+            }
+
+            .btn-teal, .btn-outline-teal {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .mobile-calendar {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 991.98px) {
+            .desktop-calendar {
+                display: none !important;
+            }
+
+            .navbar-collapse {
+                background: white;
+                padding: 1rem;
+                border-radius: 10px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <!-- Calendar Icon for Mobile (visible on mobile only) -->
+            <div class="mobile-calendar d-flex align-items-center">
+                <a href="#" class="nav-calendar-icon" title="Book Appointment">
+                    <i class="fas fa-calendar-alt fa-2x" style="color: #007f89"></i>
+                </a>
+            </div>
+            <div class="logo">
+                <a class="navbar-brand" href="#">
+                    <img src="img/logo.png" style="width: 120px; height: 80px" alt="CoreMotion Logo" />
+                </a>
+            </div>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="team.html">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="journal.html">Journal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item ms-2 d-none d-lg-block">
+                        <div class="d-flex align-items-center">
+                            <a href="#" class="btn btn-teal"> Book Assessment </a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <!-- Calendar Icon for Desktop (visible on desktop only) -->
+                        <div class="desktop-calendar">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-calendar-alt fa-2x" style="color: #007f89"></i>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="journal-hero section-padding">
+            <div class="container">
+                <div class="journal-hero-content" data-aos="fade-up">
+                    <h1>The CoreMotion Journal</h1>
+                    <p>Where Knowledge Heals and Movement Inspires.</p>
+                    <p class="mb-4">Evidence-based physiotherapy insights, lifestyle advice, and real recovery stories — helping you understand your body and move smarter every day.</p>
+                    <div class="d-flex justify-content-center flex-wrap gap-3">
+                        <a href="#featured" class="btn btn-teal">Explore Articles</a>
+                        <a href="#subscribe" class="btn btn-outline-teal">Subscribe to Insights</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Articles -->
+        <section id="featured" class="section-padding">
+            <div class="container">
+                <h2 class="section-title text-center mb-5" data-aos="fade-up">Featured Articles</h2>
+                
+                <div class="row g-4">
+                    <!-- Featured Article 1 -->
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <div class="featured-article">
+                            <div class="featured-image" style="background-image: url('https://physioplushealth.com/wp-content/uploads/2022/02/FGtXUEatTSyRthhdMFQ2eg_thumb_768d-1024x726.jpg')"></div>
+                            <div class="article-content">
+                                <div class="article-meta">
+                                    <span class="category-tag tag-digital">Digital Rehabilitation</span>
+                                    <span>06 Oct 2025 • CoreMotion Team</span>
+                                </div>
+                                <h3>How Online Physiotherapy Really Works</h3>
+                                <p class="mb-3">Virtual physiotherapy is redefining how we heal — from online assessments to guided rehab programs, offering the same precision and results as in-person care.</p>
+                                <a href="#" class="btn btn-teal">Read More <i class="fas fa-arrow-right ms-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Featured Article 2 -->
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <div class="featured-article">
+                            <div class="featured-image" style="background-image: url('https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80')"></div>
+                            <div class="article-content">
+                                <div class="article-meta">
+                                    <span class="category-tag tag-digital">Modern Physio</span>
+                                    <span>06 Oct 2025 • CoreMotion Team</span>
+                                </div>
+                                <h3>Can Online Physiotherapy Actually Work?</h3>
+                                <p class="mb-3">Can you really treat someone without touching them? Here's how guided digital rehabilitation and real-time feedback make virtual physiotherapy effective — sometimes even better.</p>
+                                <a href="#" class="btn btn-teal">Explore the Research <i class="fas fa-arrow-right ms-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Article Grid -->
+        <section class="section-padding bg-light">
+            <div class="container">
+                <h2 class="section-title text-center mb-5" data-aos="fade-up">Latest Articles</h2>
+                
+                <div class="row g-4">
+                    <!-- Article 1 -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="article-card">
+                            <div class="article-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1100&q=80')"></div>
+                            <div class="article-card-content">
+                                <span class="category-tag tag-lifestyle">Lifestyle & Movement</span>
+                                <h4 class="mt-3">Lifestyle, Movement & Recovery — The Real Core of Long-Term Health</h4>
+                                <p class="mb-3">Healing isn't a one-time event — it's a lifestyle built on posture, mindful movement, and recovery habits.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="text-muted small">12 Sep 2025</span>
+                                    <a href="#" class="text-teal text-decoration-none">Read Article <i class="fas fa-arrow-right ms-1"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Article 2 -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="article-card">
+                            <div class="article-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1100&q=80')"></div>
+                            <div class="article-card-content">
+                                <span class="category-tag tag-pain">Pain Management</span>
+                                <h4 class="mt-3">Physiotherapy vs Painkillers — The Smarter Way to Heal</h4>
+                                <p class="mb-3">Painkillers silence symptoms; physiotherapy addresses causes. Here's why active recovery builds lasting strength.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="text-muted small">05 Sep 2025</span>
+                                    <a href="#" class="text-teal text-decoration-none">Read Article <i class="fas fa-arrow-right ms-1"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Article 3 -->
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="article-card">
+                            <div class="article-thumbnail" style="background-image: url('https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1100&q=80')"></div>
+                            <div class="article-card-content">
+                                <span class="category-tag tag-ergonomics">Ergonomics & Posture</span>
+                                <h4 class="mt-3">The Power of Postural Rehabilitation</h4>
+                                <p class="mb-3">Most people sit for over eight hours a day. Learn how postural retraining prevents chronic pain and restores alignment.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="text-muted small">28 Aug 2025</span>
+                                    <a href="#" class="text-teal text-decoration-none">Read Article <i class="fas fa-arrow-right ms-1"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Insights Section -->
+        <section class="insights-section">
+            <div class="container">
+                <h2 class="section-title text-center mb-5" data-aos="fade-up">Quick Reads: Evidence in Motion</h2>
+                <p class="text-center mb-5" data-aos="fade-up">Short, research-backed articles for everyday awareness and movement.</p>
+                
+                <div class="row g-4">
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="insight-card">
+                            <div class="insight-icon">
+                                <i class="fas fa-desktop"></i>
+                            </div>
+                            <h5>Why Microbreaks Prevent 60% of Office Pain</h5>
+                            <p class="small text-muted">Short breaks throughout the day can dramatically reduce musculoskeletal discomfort.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="insight-card">
+                            <div class="insight-icon">
+                                <i class="fas fa-running"></i>
+                            </div>
+                            <h5>Stretch Smarter, Not Harder — The Science of Flexibility</h5>
+                            <p class="small text-muted">Learn the optimal duration and frequency for effective stretching.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="insight-card">
+                            <div class="insight-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h5>Mindfulness in Motion: The Overlooked Rehab Tool</h5>
+                            <p class="small text-muted">How mental focus enhances physical recovery outcomes.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                        <div class="insight-card">
+                            <div class="insight-icon">
+                                <i class="fas fa-chair"></i>
+                            </div>
+                            <h5>Desk Ergonomics Myths You Should Stop Believing</h5>
+                            <p class="small text-muted">Debunking common misconceptions about workplace setup.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Subscribe Section -->
+        <section id="subscribe" class="subscribe-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+                        <h2 class="section-title">Join the CoreMotion Community</h2>
+                        <p class="mb-4 fs-5">Get weekly physiotherapy insights and movement tips — short, simple, and science-backed.</p>
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <div class="subscribe-form">
+                            <h4 class="mb-3">Stay Updated</h4>
+                            <div class="input-group mb-3">
+                                <input type="email" class="form-control" placeholder="Your email address">
+                                <button class="btn btn-teal" type="button">Subscribe</button>
+                            </div>
+                            <p class="small text-muted mb-0">No spam. Just science that serves you.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h4 class="footer-heading">CoreMotion</h4>
+                    <p class="mb-4">Recovery made simple. Movement made powerful.</p>
+                    <p class="mb-3">
+                        <i class="fas fa-map-marker-alt me-2"></i> Bangalore, India
+                    </p>
+                    <p class="mb-3">
+                        <i class="fas fa-phone me-2"></i> +91 98765 43210
+                    </p>
+                    <p class="mb-0">
+                        <i class="fas fa-envelope me-2"></i> hello@coremotion.com
+                    </p>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">Home</a></li>
+                        <li class="mb-2"><a href="#">About Us</a></li>
+                        <li class="mb-2"><a href="#">Journal</a></li>
+                        <li class="mb-2"><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                    <h4 class="footer-heading">Our Services</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#"> Physiotherapy </a></li>
+                        <li class="mb-2"><a href="#">Rehabilitation</a></li>
+                        <li class="mb-2"><a href="#">Fitness</a></li>
+                        <li class="mb-2"><a href="#">EduHub</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3">
+                    <h4 class="footer-heading">Connect With Us</h4>
+                    <div class="social-icons mb-4">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <p class="mb-3">
+                        Subscribe to our newsletter for health tips and updates:
+                    </p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Your email address">
+                        <button class="btn btn-teal" type="button">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-5" style="border-color: rgba(255, 255, 255, 0.1)">
+
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">
+                        &copy; 2025 CoreMotion - The Online Physiotherapist. All rights reserved.
+                    </p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="d-flex justify-content-center justify-content-md-end">
+                        <p>Made with <span>&#10084;</span> by</p>
+                        <a href="#" class="me-3">&nbsp;GPT Software</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100,
+        });
+
+        // Navbar scroll effect
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 50) {
+                document.querySelector(".navbar").classList.add("scrolled");
+            } else {
+                document.querySelector(".navbar").classList.remove("scrolled");
+            }
+        });
+    </script>
+</body>
+</html>

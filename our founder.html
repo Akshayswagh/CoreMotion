@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet Our Founder | CoreMotion - The Online Physiotherapist</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+      
+        /* Hero Section */
+        .founder-hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, 
+                rgba(0, 127, 137, 0.05) 0%, 
+                rgba(123, 175, 158, 0.08) 50%, 
+                rgba(255, 255, 255, 0.9) 100%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" opacity="0.03"><path d="M200,200 Q400,100 600,300 T1000,200" stroke="%23007F89" fill="none" stroke-width="2"/><path d="M100,500 Q300,400 500,600 T900,500" stroke="%237BAF9E" fill="none" stroke-width="2"/><path d="M300,800 Q500,700 700,900 T1100,800" stroke="%23007F89" fill="none" stroke-width="2"/></svg>');
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero-shape {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--teal-primary) 0%, transparent 70%);
+            opacity: 0.03;
+            top: -300px;
+            right: -200px;
+            z-index: 0;
+        }
+
+        .hero-shape-2 {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--sage-green) 0%, transparent 70%);
+            opacity: 0.03;
+            bottom: -200px;
+            left: -100px;
+            z-index: 0;
+        }
+
+        .founder-image-container {
+            position: relative;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.15),
+                0 0 0 1px rgba(255, 255, 255, 0.9);
+            transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
+            transition: transform 0.8s ease;
+            z-index: 1;
+            margin-top: 2rem;
+        }
+
+        .founder-image-container:hover {
+            transform: perspective(1000px) rotateY(0) rotateX(0);
+        }
+
+        .founder-image {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.3));
+            padding: 2rem;
+            color: white;
+        }
+
+        .founder-hero-content {
+            padding-left: 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .founder-hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--teal-primary), var(--sage-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .founder-quote {
+            font-size: 1.8rem;
+            font-style: italic;
+            color: var(--teal-primary);
+            margin-bottom: 2rem;
+            position: relative;
+            padding-left: 2rem;
+            border-left: 4px solid var(--sage-green);
+            line-height: 1.4;
+        }
+
+        .hero-highlight {
+            background: linear-gradient(120deg, var(--sage-light) 0%, var(--sage-light) 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 0.4em;
+            background-position: 0 88%;
+        }
+
+        /* Section Styling */
+        .section-padding {
+            padding: 120px 0;
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+            display: inline-block;
+            font-size: 2.5rem;
+        }
+
+        .section-title:after {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(to right, var(--teal-primary), var(--sage-green));
+            bottom: -15px;
+            left: 0;
+            border-radius: 3px;
+        }
+
+        .section-title.text-center:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Story Section */
+        .story-section {
+            background: white;
+            position: relative;
+        }
+
+        .story-decoration {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path d="M40,40 Q100,20 160,40 T200,100 T160,160 T100,180 T40,160 T0,100 T40,40" fill="none" stroke="%237BAF9E" stroke-width="2" opacity="0.1"/></svg>');
+            top: 50px;
+            right: 50px;
+            z-index: 0;
+        }
+
+        .story-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .story-text {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+            position: relative;
+            padding-left: 2rem;
+            border-left: 3px solid var(--sage-green);
+        }
+
+        /* Challenge Section */
+        .challenge-section {
+            background: linear-gradient(135deg, var(--warm-gray) 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .challenge-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .challenge-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(123, 175, 158, 0.1);
+        }
+
+        .challenge-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--teal-primary), var(--sage-green));
+            transition: width 0.3s ease;
+        }
+
+        .challenge-card:hover:before {
+            width: 8px;
+        }
+
+        .challenge-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+        }
+
+        .challenge-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--teal-primary), var(--sage-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Vision Section */
+        .vision-section {
+            background: white;
+            position: relative;
+        }
+
+        .vision-content {
+            background: linear-gradient(135deg, var(--warm-gray) 0%, #ffffff 100%);
+            border-radius: 25px;
+            padding: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vision-content:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300"><circle cx="150" cy="150" r="140" fill="none" stroke="%23007F89" stroke-width="2" opacity="0.05"/></svg>');
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .mission-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(123, 175, 158, 0.1);
+            text-align: center;
+        }
+
+        .mission-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            border-color: var(--sage-green);
+        }
+
+        .mission-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--teal-primary), var(--sage-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .pull-quote {
+            font-size: 1.8rem;
+            font-style: italic;
+            text-align: center;
+            padding: 3rem;
+            background: linear-gradient(135deg, var(--sage-light) 0%, var(--warm-gray) 100%);
+            border-radius: 20px;
+            margin: 4rem 0;
+            position: relative;
+            border-left: 5px solid var(--sage-green);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .pull-quote:before {
+            content: "";
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-size: 5rem;
+            color: var(--sage-green);
+            opacity: 0.3;
+            font-family: Georgia, serif;
+        }
+
+        /* Passion Section */
+        .passion-section {
+            background: linear-gradient(135deg, var(--teal-primary) 0%, var(--teal-dark) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .passion-section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org2000/svg" viewBox="0 0 1000 1000"><polygon points="0,100 200,0 400,100 600,0 800,100 1000,0 1000,300 800,400 600,300 400,400 200,300 0,400" fill="white" opacity="0.02"/></svg>');
+        }
+
+        .focus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .focus-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .focus-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .focus-card:hover:before {
+            opacity: 1;
+        }
+
+        .focus-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .focus-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--gold);
+        }
+
+        /* Belief Section */
+        .belief-section {
+            background: linear-gradient(135deg, #ffffff 0%, var(--warm-gray) 100%);
+            text-align: center;
+            position: relative;
+        }
+
+        .belief-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .core-belief {
+            font-size: 2.2rem;
+            font-style: italic;
+            color: var(--teal-primary);
+            margin-bottom: 2rem;
+            line-height: 1.3;
+            position: relative;
+            padding: 2rem;
+        }
+
+        .core-belief:before,
+        .core-belief:after {
+            content: "";
+            font-size: 4rem;
+            color: var(--sage-green);
+            opacity: 0.3;
+            position: absolute;
+            font-family: Georgia, serif;
+        }
+
+        .core-belief:before {
+            top: 0;
+            left: 0;
+        }
+
+        .core-belief:after {
+            bottom: 0;
+            right: 0;
+            transform: rotate(180deg);
+        }
+
+ 
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .founder-hero-content {
+                padding-left: 2rem;
+            }
+            
+            .founder-hero h1 {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .founder-hero {
+                padding: 100px 0 60px;
+                min-height: auto;
+            }
+            
+            .founder-hero-content {
+                padding-left: 0;
+                margin-top: 3rem;
+            }
+            
+            .founder-image-container {
+                transform: none;
+            }
+            
+            .founder-hero h1 {
+                font-size: 3rem;
+            }
+            
+            .founder-quote {
+                font-size: 1.5rem;
+            }
+            
+            .section-padding {
+                padding: 80px 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .founder-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .founder-quote {
+                font-size: 1.3rem;
+                padding-left: 1.5rem;
+            }
+            
+            .core-belief {
+                font-size: 1.8rem;
+            }
+            
+            .vision-content {
+                padding: 2rem;
+            }
+            
+            .pull-quote {
+                font-size: 1.4rem;
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .founder-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .founder-quote {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .core-belief {
+                font-size: 1.5rem;
+            }
+            
+            .challenge-card, .focus-card, .mission-item {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+      <div class="container">
+        <!-- Calendar Icon for Mobile (visible on mobile only) -->
+        <div class="mobile-calendar d-flex align-items-center">
+          <a href="#" class="nav-calendar-icon" title="Book Appointment">
+            <i class="fas fa-calendar-alt fa-2x" style="color: #007f89"></i>
+          </a>
+        </div>
+        <div class="logo">
+          <a class="navbar-brand" href="#">
+            <img src="img/logo.png" style="width: 120px; height: 80px" alt="" />
+          </a>
+        </div>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.html">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="team.html">Team</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="journal.html">Journal</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item ms-2 d-none d-lg-block">
+              <div class="d-flex align-items-center">
+                <a href="#" class="btn btn-teal"> Book Assessment </a>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <!-- Calendar Icon for Desktop (visible on desktop only) -->
+              <div class="desktop-calendar">
+                <a href="#" class="nav-link">
+                  <i
+                    class="fas fa-calendar-alt fa-2x"
+                    style="color: #007f89"
+                  ></i
+                ></a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="founder-hero section-padding">
+            <div class="hero-shape"></div>
+            <div class="hero-shape-2"></div>
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <div class="founder-image-container">
+                            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                                 alt="Aabha Ingle - Founder of CoreMotion" class="founder-image">
+                            <div class="image-overlay">
+                                <h4 class="mb-0">Aabha Ingle</h4>
+                                <p class="mb-0">Founder & Lead Physiotherapist</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <div class="founder-hero-content">
+                            <h1>Meet Our Founder</h1>
+                            <div class="founder-quote">
+                                "Physiotherapy that teaches, empowers, and transforms the way people move."
+                            </div>
+                            <p class="mb-4 fs-5">
+                                I'm <span class="hero-highlight">Aabha Ingle</span>, the Founder of CoreMotion – The Online Physiotherapist,
+                                a platform built from a simple belief: when people understand their body, they heal smarter, move better, and live stronger.
+                            </p>
+                            <a href="#story" class="btn btn-teal">
+                                <i class="fas fa-arrow-down me-2"></i>Discover My Journey
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Story Section -->
+        <section id="story" class="story-section section-padding">
+            <div class="story-decoration"></div>
+            <div class="container">
+                <div class="story-content" data-aos="fade-up">
+                    <h2 class="section-title">A Journey Rooted in Movement</h2>
+                    <div class="story-text">
+                        My journey began with a deep curiosity about how movement shapes wellbeing.
+                        After completing my professional training in physiotherapy, I pursued advanced study in Musculoskeletal and Rehabilitation Sciences.
+                    </div>
+                    <div class="story-text">
+                        This was followed by specialised experience in the UK, where I worked alongside experts in evidence-based, patient-centred physiotherapy.
+                        That experience reshaped my entire outlook — physiotherapy, I realised, isn't about pain alone; it's about potential.
+                    </div>
+                    <div class="story-text">
+                        The potential to move freely, live confidently, and prevent what most people accept as "normal" pain.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Challenge Section -->
+        <section class="challenge-section section-padding">
+            <div class="container">
+                <div data-aos="fade-up">
+                    <h2 class="section-title text-center">The Challenge That Sparked CoreMotion</h2>
+                    <p class="text-center mb-5 fs-5">
+                        Throughout my clinical journey, I began to notice a pattern — not in the body, but in the system around it.
+                    </p>
+                    
+                    <div class="challenge-grid">
+                        <div class="challenge-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="challenge-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h4>Unnecessary Pain</h4>
+                            <p>Too many people live with discomfort that could have been prevented or resolved through timely, guided care.</p>
+                        </div>
+                        <div class="challenge-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="challenge-icon">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <h4>Myths & Misinformation</h4>
+                            <p>The idea that "physiotherapy only works when the therapist touches you" still holds people back from seeking help.</p>
+                        </div>
+                        <div class="challenge-card" data-aos="fade-up" data-aos-delay="300">
+                            <div class="challenge-icon">
+                                <i class="fas fa-door-closed"></i>
+                            </div>
+                            <h4>Limited Access</h4>
+                            <p>Expert care often feels distant — physically, financially, or emotionally.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-5">
+                        <div class="col-lg-10 mx-auto text-center">
+                            <p class="fs-5" data-aos="fade-up">
+                                These challenges made one thing clear: people weren't lacking motivation — they were lacking clarity, access, and trust.
+                                That's how CoreMotion was born — not just as a physiotherapy service, but as a learning space where recovery becomes understanding, not just instructions.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vision Section -->
+        <section class="vision-section section-padding">
+            <div class="container">
+                <div data-aos="fade-up">
+                    <h2 class="section-title text-center">My Vision for CoreMotion</h2>
+                    <div class="vision-content">
+                        <p class="text-center mb-4 fs-5">
+                            CoreMotion stands for a new kind of physiotherapy — one that merges clinical excellence with education and lifestyle transformation.
+                        </p>
+                        
+                        <div class="mission-grid">
+                            <div class="mission-item" data-aos="fade-up" data-aos-delay="100">
+                                <div class="mission-icon">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <h4>Understand Your Body</h4>
+                                <p>Education is the foundation of lasting recovery and prevention.</p>
+                            </div>
+                            <div class="mission-item" data-aos="fade-up" data-aos-delay="200">
+                                <div class="mission-icon">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <h4>Recover Smarter</h4>
+                                <p>Using evidence-based approaches that respect your time and goals.</p>
+                            </div>
+                            <div class="mission-item" data-aos="fade-up" data-aos-delay="300">
+                                <div class="mission-icon">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <h4>Live Confidently</h4>
+                                <p>Empowering you to take control of your health and movement.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="pull-quote" data-aos="fade-up">
+                            "Here, physiotherapy doesn't end with the last exercise — it continues in the way you move, breathe, and live every day."
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Passion Section -->
+        <section class="passion-section section-padding">
+            <div class="container">
+                <div data-aos="fade-up">
+                    <h2 class="section-title text-white text-center">Beyond the Clinic: What Drives Me</h2>
+                    <p class="text-center mb-5 fs-5 text-white">
+                        Physiotherapy is my profession, but human movement is my lifelong passion.
+                        Outside clinical practice, I focus on how the mind, body, and habits intersect.
+                    </p>
+                    
+                    <div class="focus-grid">
+                        <div class="focus-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="focus-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h4 class="text-white">Brain & Lifestyle Science</h4>
+                            <p class="text-white">Understanding how habits, sleep, and mindset accelerate recovery and prevent injuries.</p>
+                        </div>
+                        <div class="focus-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="focus-icon">
+                                <i class="fas fa-laptop-medical"></i>
+                            </div>
+                            <h4 class="text-white">Digital Health Innovation</h4>
+                            <p class="text-white">Bringing physiotherapy home through accessible, tech-supported guidance and remote monitoring.</p>
+                        </div>
+                        <div class="focus-card" data-aos="fade-up" data-aos-delay="300">
+                            <div class="focus-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <h4 class="text-white">Holistic Wellbeing</h4>
+                            <p class="text-white">Integrating movement, breathwork, and lifestyle to create sustainable healing and prevention.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Belief Section -->
+        <section class="belief-section section-padding">
+            <div class="container">
+                <div class="belief-content" data-aos="fade-up">
+                    <h2 class="section-title text-center">My Core Belief</h2>
+                    <div class="core-belief">
+                        Physiotherapy should not just treat pain — it should teach people how to move, think, and live in harmony with their body.
+                    </div>
+                    <p class="mb-4 fs-5">
+                        CoreMotion is my way of making that vision accessible to everyone.
+                        It's not just a clinic online — it's a movement for movement.
+                    </p>
+                    <a href="services.html" class="btn btn-teal btn-lg">
+                        Explore CoreMotion <i class="fas fa-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h4 class="footer-heading">CoreMotion</h4>
+                    <p class="mb-4">Recovery made simple. Movement made powerful.</p>
+                    <p class="mb-3">
+                        <i class="fas fa-map-marker-alt me-2"></i> Bangalore, India
+                    </p>
+                    <p class="mb-3">
+                        <i class="fas fa-phone me-2"></i> +91 98765 43210
+                    </p>
+                    <p class="mb-0">
+                        <i class="fas fa-envelope me-2"></i> hello@coremotion.com
+                    </p>
+                </div>
+
+                <div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">Home</a></li>
+                        <li class="mb-2"><a href="#">About Us</a></li>
+                        <li class="mb-2"><a href="#">Team</a></li>
+                        <li class="mb-2"><a href="#">Journal</a></li>
+                        <li class="mb-0"><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                    <h4 class="footer-heading">Our Services</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#"> Physiotherapy </a></li>
+                        <li class="mb-2"><a href="#">Rehabilitation</a></li>
+                        <li class="mb-2"><a href="#">Fitness</a></li>
+                        <li class="mb-2"><a href="#">EduHub</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3">
+                    <h4 class="footer-heading">Connect With Us</h4>
+                    <div class="social-icons mb-4">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <p class="mb-3">
+                        Subscribe to our newsletter for health tips and updates:
+                    </p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Your email address">
+                        <button class="btn btn-teal" type="button">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-5" style="border-color: rgba(255, 255, 255, 0.1)">
+
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">
+                        &copy; 2025 CoreMotion - The Online Physiotherapist. All rights reserved.
+                    </p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="d-flex justify-content-center justify-content-md-end">
+                        <p>Made with <span>&#10084;</span> by</p>
+                        <a href="#" class="me-3">&nbsp;GPT Software</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100,
+        });
+
+        // Navbar scroll effect
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 50) {
+                document.querySelector(".navbar").classList.add("scrolled");
+            } else {
+                document.querySelector(".navbar").classList.remove("scrolled");
+            }
+        });
+    </script>
+</body>
+</html>
