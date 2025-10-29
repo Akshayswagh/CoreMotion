@@ -25,8 +25,24 @@
 
     <!-- AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.css">
+
     <style>
+      :root {
+        --teal-primary: #007f89;
+        --teal-dark: #006670;
+        --teal-light: #4da7b1;
+        --sage-green: #7baf9e;
+        --sage-light: #d1e2d9;
+        --warm-gray: #f9fafa;
+        --charcoal: #2a2a2a;
+        --text-dark: #343a40;
+        --text-light: #6c757d;
+        --gold: #d4af37;
+      }
+
+   
+
       .btn-sage {
         background: var(--sage-green);
         color: white;
@@ -45,8 +61,9 @@
         background: #6a9e8c;
       }
 
-      /* Hero Section */
-      .team-hero {
+      /* Team Hero Section */
+      .team-hero-section {
+        margin-top: 6rem !important;
         min-height: 70vh;
         background: linear-gradient(
             135deg,
@@ -70,26 +87,28 @@
         text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
       }
 
-      .team-hero h1 {
+      .team-hero-title {
         font-size: 3.5rem;
         margin-bottom: 1rem;
         color: white;
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
       }
 
-      .team-hero p {
+      .team-hero-subtitle {
         font-size: 1.3rem;
         margin-bottom: 2rem;
         opacity: 0.95;
       }
 
-      .hero-emoji {
+      .team-hero-emoji {
         font-size: 4rem;
         margin-bottom: 1.5rem;
         display: inline-block;
-        animation: float 3s ease-in-out infinite;
+        animation: team-float 3s ease-in-out infinite;
       }
 
-      @keyframes float {
+      @keyframes team-float {
         0% {
           transform: translateY(0px);
         }
@@ -101,15 +120,15 @@
         }
       }
 
-      /* Team Intro Section */
-      .team-intro {
+      /* Team Introduction Section */
+      .team-intro-section {
         background: linear-gradient(135deg, var(--warm-gray) 0%, white 100%);
         padding: 100px 0;
         position: relative;
         overflow: hidden;
       }
 
-      .team-intro::before {
+      .team-intro-section::before {
         content: "";
         position: absolute;
         top: 0;
@@ -127,40 +146,38 @@
         z-index: 1;
       }
 
-      .section-title {
+      .team-section-title {
         position: relative;
         margin-bottom: 3rem;
         display: inline-block;
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
       }
 
-      .section-title:after {
+      .team-section-title:after {
         content: "";
         position: absolute;
         width: 80px;
         height: 4px;
-        background: linear-gradient(
-          to right,
-          var(--teal-primary),
-          var(--sage-green)
-        );
+        background: linear-gradient(to right, var(--teal-primary), var(--sage-green));
         bottom: -15px;
         left: 0;
         border-radius: 2px;
       }
 
-      .section-title.text-center:after {
+      .team-section-title.text-center:after {
         left: 50%;
         transform: translateX(-50%);
       }
 
-      /* Team Grid Section */
-      .team-section {
+      /* Team Members Grid Section */
+      .team-members-section {
         padding: 100px 0;
         background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.02"><circle cx="50" cy="50" r="40" fill="%23007F89"/></svg>');
       }
 
-      /* Flip Card Styles */
-      .flip-card {
+      /* Team Member Flip Cards */
+      .team-member-card {
         background-color: transparent;
         width: 100%;
         height: 500px;
@@ -168,7 +185,7 @@
         margin-bottom: 30px;
       }
 
-      .flip-card-inner {
+      .team-card-inner {
         position: relative;
         width: 100%;
         height: 100%;
@@ -179,12 +196,12 @@
         box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
       }
 
-      .flip-card:hover .flip-card-inner {
+      .team-member-card:hover .team-card-inner {
         transform: rotateY(180deg);
       }
 
-      .flip-card-front,
-      .flip-card-back {
+      .team-card-front,
+      .team-card-back {
         position: absolute;
         width: 100%;
         height: 100%;
@@ -194,7 +211,7 @@
         overflow: hidden;
       }
 
-      .flip-card-front {
+      .team-card-front {
         background-color: white;
         color: var(--charcoal);
         display: flex;
@@ -204,7 +221,7 @@
         padding: 2rem;
       }
 
-      .flip-card-back {
+      .team-card-back {
         background: linear-gradient(
           135deg,
           var(--teal-primary) 0%,
@@ -215,11 +232,10 @@
         padding: 2rem;
         display: flex;
         flex-direction: column;
-        /* justify-content: center; */
         overflow-y: auto;
       }
 
-      .team-image {
+      .team-member-image {
         width: 180px;
         height: 180px;
         border-radius: 50%;
@@ -229,20 +245,22 @@
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
       }
 
-      .team-name {
+      .team-member-name {
         color: var(--teal-primary);
         margin-bottom: 0.5rem;
         font-size: 1.5rem;
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
       }
 
-      .team-title {
+      .team-member-title {
         font-weight: 600;
         margin-bottom: 1rem;
         color: var(--text-dark);
         font-size: 1.1rem;
       }
 
-      .team-subtitle {
+      .team-member-subtitle {
         font-size: 0.9rem;
         color: var(--sage-green);
         text-transform: uppercase;
@@ -251,7 +269,7 @@
         font-weight: 600;
       }
 
-      .flip-icon {
+      .team-flip-icon {
         position: absolute;
         bottom: 20px;
         left: 50%;
@@ -259,10 +277,10 @@
         color: var(--teal-primary);
         font-size: 1.5rem;
         opacity: 0.7;
-        animation: bounce 2s infinite;
+        animation: team-bounce 2s infinite;
       }
 
-      @keyframes bounce {
+      @keyframes team-bounce {
         0%,
         20%,
         50%,
@@ -278,31 +296,31 @@
         }
       }
 
-      .team-bio {
+      .team-member-bio {
         margin-bottom: 1.5rem;
         color: rgba(255, 255, 255, 0.9);
         text-align: left;
       }
 
-      .expertise-list {
+      .team-expertise-list {
         margin-bottom: 1.5rem;
         text-align: left;
       }
 
-      .expertise-item {
+      .team-expertise-item {
         display: flex;
         align-items: flex-start;
         margin-bottom: 0.5rem;
       }
 
-      .expertise-icon {
+      .team-expertise-icon {
         color: var(--gold);
         margin-right: 0.5rem;
         margin-top: 0.2rem;
         flex-shrink: 0;
       }
 
-      .team-quote {
+      .team-member-quote {
         font-style: italic;
         padding: 1.5rem;
         background-color: rgba(255, 255, 255, 0.1);
@@ -312,7 +330,7 @@
         border-left: 4px solid var(--gold);
       }
 
-      .team-quote:before {
+      .team-member-quote:before {
         content: "";
         position: absolute;
         top: 10px;
@@ -323,14 +341,14 @@
         font-family: Georgia, serif;
       }
 
-      .social-links {
+      .team-social-links {
         display: flex;
         justify-content: center;
         gap: 15px;
         margin-top: 1.5rem;
       }
 
-      .social-link {
+      .team-social-link {
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -342,14 +360,14 @@
         transition: all 0.3s ease;
       }
 
-      .social-link:hover {
+      .team-social-link:hover {
         background: var(--gold);
         transform: translateY(-3px);
         color: white;
       }
 
-      /* Stats Section */
-      .stats-section {
+      /* Team Statistics Section */
+      .team-stats-section {
         background: linear-gradient(
           135deg,
           var(--teal-primary) 0%,
@@ -359,25 +377,25 @@
         padding: 80px 0;
       }
 
-      .stat-item {
+      .team-stat-item {
         text-align: center;
         padding: 20px;
       }
 
-      .stat-number {
+      .team-stat-number {
         font-size: 3rem;
         font-weight: 700;
         margin-bottom: 0.5rem;
         font-family: "Playfair Display", serif;
       }
 
-      .stat-label {
+      .team-stat-label {
         font-size: 1.1rem;
         opacity: 0.9;
       }
 
-      /* CTA Section */
-      .team-cta {
+      /* Team CTA Section */
+      .team-cta-section {
         background: linear-gradient(
             135deg,
             rgba(255, 255, 255, 0.9) 0%,
@@ -390,7 +408,7 @@
         position: relative;
       }
 
-      .cta-content {
+      .team-cta-content {
         position: relative;
         z-index: 1;
         max-width: 700px;
@@ -399,68 +417,68 @@
 
       /* Responsive Design */
       @media (max-width: 991.98px) {
-        .flip-card {
+        .team-member-card {
           height: 450px;
         }
       }
 
       @media (max-width: 768px) {
-        .team-hero {
+        .team-hero-section {
           padding: 120px 0 60px;
           text-align: center;
           min-height: 60vh;
         }
 
-        .team-hero h1 {
+        .team-hero-title {
           font-size: 2.5rem;
         }
 
-        .team-hero p {
+        .team-hero-subtitle {
           font-size: 1.1rem;
         }
 
-        .hero-emoji {
+        .team-hero-emoji {
           font-size: 3rem;
         }
 
-        .team-intro,
-        .team-section,
-        .stats-section,
-        .team-cta {
+        .team-intro-section,
+        .team-members-section,
+        .team-stats-section,
+        .team-cta-section {
           padding: 60px 0;
         }
 
-        .team-image {
+        .team-member-image {
           width: 150px;
           height: 150px;
         }
 
-        .flip-card {
+        .team-member-card {
           height: 400px;
         }
       }
 
       @media (max-width: 576px) {
-        .team-hero h1 {
+        .team-hero-title {
           font-size: 2rem;
         }
 
-        .team-hero p {
+        .team-hero-subtitle {
           font-size: 1rem;
         }
 
-        .flip-card {
+        .team-member-card {
           height: 450px;
         }
 
-        .stat-number {
+        .team-stat-number {
           font-size: 2.5rem;
         }
       }
     </style>
   </head>
   <body>
-    <!-- Navigation -->
+    <!-- Navigation (unchanged) -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
       <div class="container">
         <!-- Calendar Icon for Mobile (visible on mobile only) -->
@@ -487,7 +505,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link" href="/">Home</a>
+              <a class="nav-link " href="/">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="about.html">About</a>
@@ -527,24 +545,26 @@
     </nav>
 
     <main>
-      <!-- Hero Section -->
-      <section class="team-hero">
+      <!-- Team Hero Section -->
+      <section class="team-hero-section">
         <div class="container">
           <div class="team-hero-content" data-aos="fade-up">
-            <h1>The CoreMotion Collective</h1>
-            <p>Your Recovery Team – Powered by CoreMotion</p>
-            <a href="#team-grid" class="btn btn-teal btn-lg"
+            <h1 class="team-hero-title">The CoreMotion Collective</h1>
+            <p class="team-hero-subtitle">
+              Your Recovery Team – Powered by CoreMotion
+            </p>
+            <a href="#team-members-section" class="btn btn-teal btn-lg"
               >Meet Our Experts</a
             >
           </div>
         </div>
       </section>
 
-      <!-- Team Intro Section -->
-      <section class="team-intro">
+      <!-- Team Introduction Section -->
+      <section class="team-intro-section">
         <div class="container">
           <div class="team-intro-content" data-aos="fade-up">
-            <h2 class="section-title text-center">Meet Our Team</h2>
+            <h2 class="team-section-title text-center">Meet Our Team</h2>
             <p class="mb-4 fs-5">
               At CoreMotion – The Online Physiotherapist, we are more than just
               practitioners — we are partners in your recovery journey.
@@ -561,8 +581,8 @@
         </div>
       </section>
 
-      <!-- Team Grid Section -->
-      <section id="team-grid" class="team-section">
+      <!-- Team Members Grid Section -->
+      <section id="team-members-section" class="team-members-section">
         <div class="container">
           <div class="row">
             <!-- Team Member 1 -->
@@ -571,80 +591,84 @@
               data-aos="fade-up"
               data-aos-delay="100"
             >
-              <div class="flip-card">
-                <div class="flip-card-inner">
-                  <div class="flip-card-front">
+              <div class="team-member-card">
+                <div class="team-card-inner">
+                  <div class="team-card-front">
                     <img
                       src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
                       alt="Aabha Abhay Ingle"
-                      class="team-image"
+                      class="team-member-image"
                     />
-                    <h3 class="team-name">Aabha Abhay Ingle</h3>
-                    <h4 class="team-title">Founder & Lead Physiotherapist</h4>
-                    <div class="team-subtitle">
+                    <h3 class="team-member-name">Aabha Abhay Ingle</h3>
+                    <h4 class="team-member-title">
+                      Founder & Lead Physiotherapist
+                    </h4>
+                    <div class="team-member-subtitle">
                       UK-trained | 5+ Years Experience
                     </div>
                     <p class="text-muted">Hover to learn more</p>
-                    <div class="flip-icon">
+                    <div class="team-flip-icon">
                       <i class="fas fa-sync-alt"></i>
                     </div>
                   </div>
-                  <div class="flip-card-back">
-                    <h3 class="team-name text-white">Aabha Abhay Ingle</h3>
-                    <h4 class="team-title text-white">
+                  <div class="team-card-back">
+                    <h3 class="team-member-name text-white">
+                      Aabha Abhay Ingle
+                    </h3>
+                    <h4 class="team-member-title text-white">
                       Founder & Lead Physiotherapist
                     </h4>
-                    <p class="team-bio">
+                    <p class="team-member-bio">
                       With advanced professional training and clinical practice
                       in the United Kingdom, Aabha brings a strong international
                       perspective to modern physiotherapy.
                     </p>
-                    <p class="team-bio">
+                    <p class="team-member-bio">
                       Her expertise spans musculoskeletal, orthopedic, and
                       neurological rehabilitation, as well as pain management
                       and post-operative recovery.
                     </p>
 
-                    <div class="expertise-list">
-                      <div class="expertise-item">
-                        <span class="expertise-icon"
+                    <div class="team-expertise-list">
+                      <div class="team-expertise-item">
+                        <span class="team-expertise-icon"
                           ><i class="fas fa-check-circle"></i
                         ></span>
                         <span>Musculoskeletal & Orthopedic Rehabilitation</span>
                       </div>
-                      <div class="expertise-item">
-                        <span class="expertise-icon"
+                      <div class="team-expertise-item">
+                        <span class="team-expertise-icon"
                           ><i class="fas fa-check-circle"></i
                         ></span>
                         <span>Neurological Rehabilitation</span>
                       </div>
-                      <div class="expertise-item">
-                        <span class="expertise-icon"
+                      <div class="team-expertise-item">
+                        <span class="team-expertise-icon"
                           ><i class="fas fa-check-circle"></i
                         ></span>
                         <span>Pain Management & Post-Operative Recovery</span>
                       </div>
-                      <div class="expertise-item">
-                        <span class="expertise-icon"
+                      <div class="team-expertise-item">
+                        <span class="team-expertise-icon"
                           ><i class="fas fa-check-circle"></i
                         ></span>
                         <span>Exercise & Lifestyle-Oriented Rehab</span>
                       </div>
                     </div>
 
-                    <div class="team-quote">
+                    <div class="team-member-quote">
                       "Rehabilitation doesn't end with recovery — it's the start
                       of living stronger every day."
                     </div>
 
-                    <div class="social-links">
-                      <a href="#" class="social-link"
+                    <div class="team-social-links">
+                      <a href="#" class="team-social-link"
                         ><i class="fab fa-linkedin-in"></i
                       ></a>
-                      <a href="#" class="social-link"
+                      <a href="#" class="team-social-link"
                         ><i class="fas fa-envelope"></i
                       ></a>
-                      <a href="#" class="social-link"
+                      <a href="#" class="team-social-link"
                         ><i class="fas fa-calendar-alt"></i
                       ></a>
                     </div>
@@ -659,83 +683,83 @@
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              <div class="flip-card">
-                <div class="flip-card-inner">
-                  <div class="flip-card-front">
+              <div class="team-member-card">
+                <div class="team-card-inner">
+                  <div class="team-card-front">
                     <img
                       src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1167&q=80"
                       alt="Deepthi"
-                      class="team-image"
+                      class="team-member-image"
                     />
-                    <h3 class="team-name">Deepthi</h3>
-                    <h4 class="team-title">
+                    <h3 class="team-member-name">Deepthi</h3>
+                    <h4 class="team-member-title">
                       Physiotherapist & Rehabilitation Specialist
                     </h4>
-                    <div class="team-subtitle">
+                    <div class="team-member-subtitle">
                       Compassionate Care | Sustainable Recovery
                     </div>
                     <p class="text-muted">Hover to learn more</p>
-                    <div class="flip-icon">
+                    <div class="team-flip-icon">
                       <i class="fas fa-sync-alt"></i>
                     </div>
                   </div>
-                  <div class="flip-card-back">
-                    <h3 class="team-name text-white">Deepthi</h3>
-                    <h4 class="team-title text-white">
+                  <div class="team-card-back">
+                    <h3 class="team-member-name text-white">Deepthi</h3>
+                    <h4 class="team-member-title text-white">
                       Physiotherapist & Rehabilitation Specialist
                     </h4>
-                    <p class="team-bio">
+                    <p class="team-member-bio">
                       Deepthi brings calm strength and compassion to every
                       session, helping clients rebuild not only function but
                       also confidence.
                     </p>
-                    <p class="team-bio">
+                    <p class="team-member-bio">
                       She designs practical and sustainable recovery plans that
                       prioritize independence, mobility, and everyday strength.
                     </p>
 
-                    <div class="expertise-list">
-                      <div class="expertise-item">
-                        <span class="expertise-icon"
+                    <div class="team-expertise-list">
+                      <div class="team-expertise-item">
+                        <span class="team-expertise-icon"
                           ><i class="fas fa-check-circle"></i
                         ></span>
                         <span>Neurological Rehabilitation</span>
                       </div>
-                      <div class="expertise-item">
-                        <span class="expertise-icon"
+                      <div class="team-expertise-item">
+                        <span class="team-expertise-icon"
                           ><i class="fas fa-check-circle"></i
                         ></span>
                         <span>Musculoskeletal Disorders</span>
                       </div>
-                      <div class="expertise-item">
-                        <span class="expertise-icon"
+                      <div class="team-expertise-item">
+                        <span class="team-expertise-icon"
                           ><i class="fas fa-check-circle"></i
                         ></span>
                         <span
                           >Orthopedic Injuries & Post-Operative Recovery</span
                         >
                       </div>
-                      <div class="expertise-item">
-                        <span class="expertise-icon"
+                      <div class="team-expertise-item">
+                        <span class="team-expertise-icon"
                           ><i class="fas fa-check-circle"></i
                         ></span>
                         <span>Patient-Focused Recovery Plans</span>
                       </div>
                     </div>
 
-                    <div class="team-quote">
+                    <div class="team-member-quote">
                       "Healing isn't only recovery — it's about building
                       strength for the future."
                     </div>
 
-                    <div class="social-links">
-                      <a href="#" class="social-link"
+                    <div class="team-social-links">
+                      <a href="#" class="team-social-link"
                         ><i class="fab fa-linkedin-in"></i
                       ></a>
-                      <a href="#" class="social-link"
+                      <a href="#" class="team-social-link"
                         ><i class="fas fa-envelope"></i
                       ></a>
-                      <a href="#" class="social-link"
+                      <a href="#" class="team-social-link"
                         ><i class="fas fa-calendar-alt"></i
                       ></a>
                     </div>
@@ -750,82 +774,82 @@
               data-aos="fade-up"
               data-aos-delay="300"
             >
-              <div class="flip-card">
-                <div class="flip-card-inner">
-                  <div class="flip-card-front">
+              <div class="team-member-card">
+                <div class="team-card-inner">
+                  <div class="team-card-front">
                     <img
                       src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1167&q=80"
                       alt="Gurumorthy"
-                      class="team-image"
+                      class="team-member-image"
                     />
-                    <h3 class="team-name">Gurumorthy</h3>
-                    <h4 class="team-title">
+                    <h3 class="team-member-name">Gurumorthy</h3>
+                    <h4 class="team-member-title">
                       Physiotherapist & Fitness Instructor
                     </h4>
-                    <div class="team-subtitle">
+                    <div class="team-member-subtitle">
                       Functional Training | Active Living
                     </div>
                     <p class="text-muted">Hover to learn more</p>
-                    <div class="flip-icon">
+                    <div class="team-flip-icon">
                       <i class="fas fa-sync-alt"></i>
                     </div>
                   </div>
-                  <div class="flip-card-back">
-                    <h3 class="team-name text-white">Gurumorthy</h3>
-                    <h4 class="team-title text-white">
+                  <div class="team-card-back">
+                    <h3 class="team-member-name text-white">Gurumorthy</h3>
+                    <h4 class="team-member-title text-white">
                       Physiotherapist & Fitness Instructor
                     </h4>
-                    <p class="team-bio">
+                    <p class="team-member-bio">
                       Gurumorthy bridges the gap between clinical rehabilitation
                       and active living, empowering clients to move with
                       strength and confidence.
                     </p>
-                    <p class="team-bio">
+                    <p class="team-member-bio">
                       His style combines evidence-based physiotherapy with
                       functional fitness coaching, helping patients transition
                       from pain to performance.
                     </p>
 
-                    <div class="expertise-list">
-                      <div class="expertise-item">
-                        <span class="expertise-icon"
+                    <div class="team-expertise-list">
+                      <div class="team-expertise-item">
+                        <span class="team-expertise-icon"
                           ><i class="fas fa-check-circle"></i
                         ></span>
                         <span>Neurological & Orthopedic Rehabilitation</span>
                       </div>
-                      <div class="expertise-item">
-                        <span class="expertise-icon"
+                      <div class="team-expertise-item">
+                        <span class="team-expertise-icon"
                           ><i class="fas fa-check-circle"></i
                         ></span>
                         <span>Musculoskeletal Recovery & Pain Management</span>
                       </div>
-                      <div class="expertise-item">
-                        <span class="expertise-icon"
+                      <div class="team-expertise-item">
+                        <span class="team-expertise-icon"
                           ><i class="fas fa-check-circle"></i
                         ></span>
                         <span>Functional Training & Fitness Coaching</span>
                       </div>
-                      <div class="expertise-item">
-                        <span class="expertise-icon"
+                      <div class="team-expertise-item">
+                        <span class="team-expertise-icon"
                           ><i class="fas fa-check-circle"></i
                         ></span>
                         <span>Bridging Therapy & Active Living</span>
                       </div>
                     </div>
 
-                    <div class="team-quote">
+                    <div class="team-member-quote">
                       "Stronger every day — that's the goal of every recovery
                       journey."
                     </div>
 
-                    <div class="social-links">
-                      <a href="#" class="social-link"
+                    <div class="team-social-links">
+                      <a href="#" class="team-social-link"
                         ><i class="fab fa-linkedin-in"></i
                       ></a>
-                      <a href="#" class="social-link"
+                      <a href="#" class="team-social-link"
                         ><i class="fas fa-envelope"></i
                       ></a>
-                      <a href="#" class="social-link"
+                      <a href="#" class="team-social-link"
                         ><i class="fas fa-calendar-alt"></i
                       ></a>
                     </div>
@@ -837,8 +861,8 @@
         </div>
       </section>
 
-      <!-- Stats Section -->
-      <section class="stats-section">
+      <!-- Team Statistics Section -->
+      <section class="team-stats-section">
         <div class="container">
           <div class="row">
             <div
@@ -846,9 +870,9 @@
               data-aos="fade-up"
               data-aos-delay="100"
             >
-              <div class="stat-item">
-                <div class="stat-number">500+</div>
-                <div class="stat-label">Patients Helped</div>
+              <div class="team-stat-item">
+                <div class="team-stat-number">500+</div>
+                <div class="team-stat-label">Patients Helped</div>
               </div>
             </div>
             <div
@@ -856,9 +880,9 @@
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              <div class="stat-item">
-                <div class="stat-number">15+</div>
-                <div class="stat-label">Years Combined Experience</div>
+              <div class="team-stat-item">
+                <div class="team-stat-number">15+</div>
+                <div class="team-stat-label">Years Combined Experience</div>
               </div>
             </div>
             <div
@@ -866,9 +890,9 @@
               data-aos="fade-up"
               data-aos-delay="300"
             >
-              <div class="stat-item">
-                <div class="stat-number">98%</div>
-                <div class="stat-label">Patient Satisfaction</div>
+              <div class="team-stat-item">
+                <div class="team-stat-number">98%</div>
+                <div class="team-stat-label">Patient Satisfaction</div>
               </div>
             </div>
             <div
@@ -876,19 +900,19 @@
               data-aos="fade-up"
               data-aos-delay="400"
             >
-              <div class="stat-item">
-                <div class="stat-number">3</div>
-                <div class="stat-label">Specialized Experts</div>
+              <div class="team-stat-item">
+                <div class="team-stat-number">3</div>
+                <div class="team-stat-label">Specialized Experts</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- CTA Section -->
-      <section class="team-cta">
+      <!-- Team CTA Section -->
+      <section class="team-cta-section">
         <div class="container">
-          <div class="cta-content" data-aos="fade-up">
+          <div class="team-cta-content" data-aos="fade-up">
             <h2 class="mb-4">Ready to Start Your Recovery Journey?</h2>
             <p class="mb-4 fs-5">
               Our team is here to guide you every step of the way with
@@ -905,7 +929,7 @@
       </section>
     </main>
 
-    <!-- Footer -->
+    <!-- Footer (unchanged) -->
     <footer class="footer">
       <div class="container">
         <div class="row">
@@ -1009,10 +1033,10 @@
       });
 
       // Add click functionality for mobile devices
-      document.querySelectorAll(".flip-card").forEach((card) => {
+      document.querySelectorAll(".team-member-card").forEach((card) => {
         card.addEventListener("click", function () {
           if (window.innerWidth < 992) {
-            this.querySelector(".flip-card-inner").classList.toggle("flipped");
+            this.querySelector(".team-card-inner").classList.toggle("flipped");
           }
         });
       });
