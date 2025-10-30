@@ -1,51 +1,637 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      CoreMotion – The Online Physiotherapist | Evidence-Based Physiotherapy
-      Anywhere
-    </title>
-
-    <!-- Bootstrap 5 CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    />
-
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Animate.css -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
-
-    <!-- AOS CSS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-
-    <!-- Glide.js CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/css/glide.core.min.css"
-    />
-    <!-- style.css -->
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | CoreMotion - The Online Physiotherapist</title>
     
-    <!-- Navigation -->
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        :root {
+            --teal-primary: #007F89;
+            --teal-dark: #006670;
+            --teal-light: #4da7b1;
+            --sage-green: #7BAF9E;
+            --sage-light: #d1e2d9;
+            --warm-gray: #F9FAFA;
+            --charcoal: #2a2a2a;
+            --text-dark: #343a40;
+            --text-light: #6c757d;
+            --gold: #D4AF37;
+            --accent-purple: #8A4FFF;
+        }
+
+        
+
+      
+
+        /* Services Hero Section */
+        .services-hero-section {
+            min-height: 100vh;
+            background: 
+                linear-gradient(135deg, rgba(0, 127, 137, 0.7) 0%, rgba(123, 175, 158, 0.6) 100%),
+                url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero-video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .hero-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.15;
+        }
+
+        .services-hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .services-hero-title {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            line-height: 1.1;
+        }
+
+        .services-hero-subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--gold);
+        }
+
+        .hero-stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Section Styling */
+        .services-section-padding {
+            padding: 120px 0;
+        }
+
+        .services-section-title {
+            position: relative;
+            margin-bottom: 3rem;
+            display: inline-block;
+            font-size: 3rem;
+        }
+
+        .services-section-title:after {
+            content: "";
+            position: absolute;
+            width: 120px;
+            height: 5px;
+            background: linear-gradient(to right, var(--teal-primary), var(--sage-green));
+            bottom: -15px;
+            left: 0;
+            border-radius: 3px;
+        }
+
+        .services-section-title.text-center:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Physiotherapy Section */
+        .physio-section {
+            background: white;
+            position: relative;
+        }
+
+        .physio-visual-card {
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            height: 500px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .physio-visual-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 35px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .physio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 3rem;
+            color: white;
+        }
+
+        /* Online Diagnosis Process */
+        .diagnosis-process {
+            background: linear-gradient(135deg, var(--teal-primary) 0%, var(--teal-dark) 100%);
+            color: white;
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .process-visual-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .process-visual-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .process-icon {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            color: var(--gold);
+        }
+
+        .process-number {
+            width: 80px;
+            height: 80px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 auto 2rem;
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
+        }
+/* Conditions Section - FIXED FLIP CARDS */
+.conditions-section {
+    background: white;
+}
+
+.condition-visual-card {
+    background-color: transparent;
+    width: 100%;
+    height: 450px;
+    perspective: 1000px;
+    margin-bottom: 30px;
+    border-radius: 25px;
+    overflow: visible; /* CHANGED from hidden */
+}
+
+.condition-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    border-radius: 25px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.condition-visual-card:hover .condition-card-inner {
+    transform: rotateY(180deg);
+}
+
+.condition-card-front, .condition-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.condition-card-front {
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+    position: relative;
+}
+
+.condition-card-front:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+    z-index: 1;
+}
+
+.condition-card-front-content {
+    position: relative;
+    z-index: 2;
+}
+
+.condition-card-back {
+    background: linear-gradient(135deg, var(--teal-primary) 0%, var(--sage-green) 100%);
+    color: white;
+    transform: rotateY(180deg);
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    /* ADD THESE PROPERTIES */
+    top: 0;
+    left: 0;
+}
+
+        .condition-badge {
+            background: var(--gold);
+            color: var(--charcoal);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        /* Ergonomics Section */
+        .ergonomics-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ergonomics-visual {
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            height: 500px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hustle-visual-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--gold);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .hustle-visual-card:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Stroke Rehab Section - Redesigned */
+        .stroke-rehab-section {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e6f2ff 100%);
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rehab-visual-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2rem;
+            border-top: 5px solid var(--teal-primary);
+            transition: all 0.4s ease;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rehab-visual-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--teal-primary), var(--sage-green));
+        }
+
+        .rehab-visual-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .rehab-icon {
+            font-size: 3.5rem;
+            color: var(--teal-primary);
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--teal-primary), var(--sage-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .rehab-image-container {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* EduHub Section - Redesigned */
+        .eduhub-section {
+            background: white;
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .eduhub-visual-card {
+            background: linear-gradient(135deg, #ffffff 0%, var(--warm-gray) 100%);
+            border-radius: 25px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            height: 100%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .eduhub-visual-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--teal-primary), var(--sage-green));
+        }
+
+        .eduhub-visual-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .eduhub-icon {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--teal-primary), var(--sage-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* CTA Section - Redesigned */
+        .services-cta-section {
+            background: 
+                linear-gradient(135deg, rgba(0, 127, 137, 0.9) 0%, rgba(123, 175, 158, 0.85) 100%),
+                url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+            color: white;
+            padding: 150px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .cta-stat {
+            text-align: center;
+        }
+
+        .cta-stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--gold);
+        }
+
+        .cta-stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+
+        /* New Visual Enhancements */
+        .floating-element {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            filter: blur(40px);
+            z-index: 0;
+        }
+
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .visual-highlight {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .visual-highlight:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .visual-highlight:hover:before {
+            left: 100%;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--teal-primary), var(--sage-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .image-overlay {
+            position: relative;
+        }
+
+        .image-overlay:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 127, 137, 0.3) 0%, rgba(123, 175, 158, 0.3) 100%);
+            z-index: 1;
+        }
+
+        .image-overlay-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .services-hero-title {
+                font-size: 4rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .services-hero-section {
+                padding: 100px 0 60px;
+                min-height: auto;
+            }
+            
+            .services-hero-title {
+                font-size: 3.5rem;
+            }
+            
+            .services-section-padding {
+                padding: 100px 0;
+            }
+            
+            .services-section-title {
+                font-size: 2.5rem;
+            }
+            
+            .condition-visual-card {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .services-hero-title {
+                font-size: 3rem;
+            }
+            
+            .services-hero-subtitle {
+                font-size: 1.5rem;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .condition-visual-card {
+                height: 350px;
+            }
+            
+            .cta-stats {
+                flex-direction: column;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .services-hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .services-hero-subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .services-section-title {
+                font-size: 2rem;
+            }
+            
+            .condition-visual-card {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+      <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
       <div class="container">
         <!-- Calendar Icon for Mobile (visible on mobile only) -->
@@ -75,7 +661,7 @@
               <a class="nav-link " href="/">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link " href="about.html">About</a>
+              <a class="nav-link" href="about.html">About</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" href="services.html">Services</a>
@@ -84,7 +670,7 @@
               <a class="nav-link" href="team.html">Team</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link " href="journal.html">Journal</a>
+              <a class="nav-link" href="journal.html">Journal</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="contact.html">Contact</a>
@@ -111,94 +697,454 @@
       </div>
     </nav>
 
-<main>
-  <div>
-    <h1 style="height: 10vh; color: red; margin-top: 30vh;">service page</h1>
-  </div>
+    <main>
+        <!-- Services Hero Section -->
+        <section class="services-hero-section">
+            <div class="floating-element" style="top: 10%; left: 5%; width: 150px; height: 150px;"></div>
+            <div class="floating-element" style="top: 60%; right: 10%; width: 120px; height: 120px;"></div>
+            <div class="floating-element" style="bottom: 20%; left: 15%; width: 100px; height: 100px;"></div>
+            
+            <div class="hero-video-container">
+                <video class="hero-video" autoplay muted loop>
+                    <source src="https://assets.mixkit.co/videos/preview/mixkit-woman-doing-yoga-exercises-at-home-44559-large.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="container">
+                <div class="services-hero-content" data-aos="fade-up">
+                    <h1 class="services-hero-title">Transform Your Recovery Journey</h1>
+                    <p class="services-hero-subtitle">Evidence-based physiotherapy meets cutting-edge technology for personalized care from home</p>
+                    <a href="#physio-section" class="btn btn-teal btn-lg pulse-animation">
+                        <i class="fas fa-arrow-down me-2"></i>Explore Our Services
+                    </a>
+                </div>
+            </div>
+        </section>
 
-</main>
+        <!-- Physiotherapy Section -->
+        <section id="physio-section" class="physio-section services-section-padding">
+            <div class="container">
+                <h2 class="services-section-title text-center mb-5">Physiotherapy at CoreMotion</h2>
+                
+                <div class="row align-items-center mb-5">
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <div class="physio-visual-card visual-highlight" style="background-image: url('img/img_homepage/we\ we\ need.jpg')">
+                            <div class="physio-overlay">
+                                <h3 class="text-white">Active Movement-Based Rehabilitation</h3>
+                                <p class="text-white mb-0">Combining science-backed advice with cutting-edge technology</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <h3 class="mb-4">When and Why Do You Need Physiotherapy?</h3>
+                        <p class="mb-4 fs-5">You may benefit from physiotherapy if you experience pain or stiffness that limits movement, have suffered an injury, struggle with posture-related problems, or want to prevent future injuries.</p>
+                        <p class="fs-5"><strong>Early intervention is key</strong> — it leads to faster recovery, less pain, and a lower risk of long-term complications.</p>
+                        
+                        <div class="mt-4">
+                            <h5>Can Physiotherapy Be Done Online?</h5>
+                            <p class="mb-0"><strong>Yes.</strong> With today's tools, physiotherapy is just as accurate and effective online as it is face-to-face.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- Online Diagnosis Process -->
+        <section class="diagnosis-process">
+            <div class="floating-element" style="top: 10%; right: 5%; width: 120px; height: 120px;"></div>
+            <div class="floating-element" style="bottom: 20%; left: 10%; width: 100px; height: 100px;"></div>
+            
+            <div class="container">
+                <h2 class="services-section-title text-white text-center mb-5">How Online Diagnosis Works</h2>
+                <p class="text-center mb-5 fs-5 text-white">Our four-step process ensures accurate diagnosis and personalized treatment plans</p>
+                
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="process-visual-card visual-highlight">
+                            <div class="process-number">1</div>
+                            <div class="process-icon">
+                                <i class="fas fa-clipboard-list"></i>
+                            </div>
+                            <h4>Comprehensive History</h4>
+                            <p>Detailed questions about symptoms, injury, lifestyle, and medical background</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="process-visual-card visual-highlight">
+                            <div class="process-number">2</div>
+                            <div class="process-icon">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <h4>Video Observation</h4>
+                            <p>Guided movements & posture checks over video with advanced analysis</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="process-visual-card visual-highlight">
+                            <div class="process-number">3</div>
+                            <div class="process-icon">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <h4>Self-Assessment Tests</h4>
+                            <p>Safe, therapist-directed checks for muscles, joints, and flexibility</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                        <div class="process-visual-card visual-highlight">
+                            <div class="process-number">4</div>
+                            <div class="process-icon">
+                                <i class="fas fa-file-medical"></i>
+                            </div>
+                            <h4>Personalized Plan</h4>
+                            <p>Combining findings to give you a clear diagnosis and treatment plan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- Conditions We Treat Section - FIXED FLIP CARDS -->
+        <section class="conditions-section services-section-padding">
+            <div class="container">
+                <h2 class="services-section-title text-center mb-5">Conditions We Treat</h2>
+                <p class="text-center mb-5 fs-5">
+                    Evidence-based treatment for a wide range of conditions through guided video consultations and advanced rehab software
+                </p>
+                
+                <div class="row">
+                    <!-- Sports Injuries -->
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="condition-visual-card">
+                            <div class="condition-card-inner">
+                                <div class="condition-card-front" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')">
+                                    <div class="condition-card-front-content">
+                                        <span class="condition-badge">Sports & Musculoskeletal</span>
+                                        <h3 class="text-white">Active Recovery</h3>
+                                        <p class="text-white">Click to learn more about treatment</p>
+                                    </div>
+                                </div>
+                                <div class="condition-card-back">
+                                    <h4 class="text-white mb-3">Sports Injuries Treatment</h4>
+                                    <p class="text-white">Studies show exercise-based physiotherapy programs delivered remotely achieve recovery outcomes comparable to in-person therapy.</p>
+                                    <ul class="text-white mt-3">
+                                        <li>ACL, Achilles, rotator cuff injuries</li>
+                                        <li>Runner's knee, tennis/golfer's elbow</li>
+                                        <li>Post-fracture recovery programs</li>
+                                        <li>Muscle strains and ligament sprains</li>
+                                    </ul>
+                                    <div class="mt-4">
+                                        <span class="badge bg-gold">98% Success Rate</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Post-Surgical -->
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="condition-visual-card">
+                            <div class="condition-card-inner">
+                                <div class="condition-card-front" style="background-image: url('https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')">
+                                    <div class="condition-card-front-content">
+                                        <span class="condition-badge">Post-Surgical Rehab</span>
+                                        <h3 class="text-white">Structured Recovery</h3>
+                                        <p class="text-white">Click to learn more about treatment</p>
+                                    </div>
+                                </div>
+                                <div class="condition-card-back">
+                                    <h4 class="text-white mb-3">Post-Surgical Rehabilitation</h4>
+                                    <p class="text-white">Evidence shows patients following supervised home-based rehab recover strength and mobility just as well as clinic sessions.</p>
+                                    <ul class="text-white mt-3">
+                                        <li>Knee or hip replacement recovery</li>
+                                        <li>ACL and meniscus surgery rehab</li>
+                                        <li>Spine procedures & shoulder repairs</li>
+                                        <li>Ankle or wrist surgeries recovery</li>
+                                    </ul>
+                                    <div class="mt-4">
+                                        <span class="badge bg-gold">Faster Recovery</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Chronic Pain -->
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="condition-visual-card">
+                            <div class="condition-card-inner">
+                                <div class="condition-card-front" style="background-image: url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2120&q=80')">
+                                    <div class="condition-card-front-content">
+                                        <span class="condition-badge">Chronic Pain & Arthritis</span>
+                                        <h3 class="text-white">Pain Management</h3>
+                                        <p class="text-white">Click to learn more about treatment</p>
+                                    </div>
+                                </div>
+                                <div class="condition-card-back">
+                                    <h4 class="text-white mb-3">Chronic Conditions Care</h4>
+                                    <p class="text-white">Virtual physiotherapy programs, including exercise and education, proven effective in reducing pain and improving quality of life.</p>
+                                    <ul class="text-white mt-3">
+                                        <li>Back pain & slipped discs treatment</li>
+                                        <li>Osteoarthritis & rheumatoid arthritis</li>
+                                        <li>Posture-related headaches relief</li>
+                                        <li>Sciatica and nerve pain management</li>
+                                    </ul>
+                                    <div class="mt-4">
+                                        <span class="badge bg-gold">Pain Reduction</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ergonomics Section -->
+        <section class="ergonomics-section">
+            <div class="floating-element" style="top: 15%; left: 10%; width: 120px; height: 120px;"></div>
+            <div class="floating-element" style="bottom: 25%; right: 5%; width: 100px; height: 100px;"></div>
+            
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <div class="ergonomics-visual" style="background-image: url('img/PROFESSIONAL\ CONSULTATION.jpg')"></div>
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <h2 class="services-section-title text-white mb-5">Ergonomics at CoreMotion</h2>
+                        
+                        <div class="hustle-visual-card visual-highlight">
+                            <h3 class="text-white">The Hustle is Real</h3>
+                            <p class="text-white mb-0">
+                                We get it. Everyone's out here grinding — long hours at the laptop, chasing deadlines, building start-ups. The hustle culture is alive, and you're on fire doing amazing things.
+                            </p>
+                        </div>
+                        
+                        <div class="hustle-visual-card visual-highlight">
+                            <h3 class="text-white">Why Ergonomics Matters</h3>
+                            <p class="text-white mb-0">
+                                The body wasn't built for 12-hour screen days. Hustle without care = burnout. That's why ergonomics is your secret weapon for sustainable success.
+                            </p>
+                        </div>
+                        
+                        <div class="hustle-visual-card visual-highlight">
+                            <h3 class="text-white">CoreMotion Has Your Back</h3>
+                            <p class="text-white mb-0">
+                                We're not here with boring posture lectures. We're here with solutions that fit your life and keep you performing at your best.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stroke Rehab Section - Redesigned -->
+        <section class="stroke-rehab-section">
+            <div class="container">
+                <div class="row align-items-center mb-5">
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <h2 class="services-section-title mb-4">Neuro-Rehabilitation Journey</h2>
+                        <p class="fs-5 mb-4">Our specialized stroke recovery program combines cutting-edge technology with personalized care to help you regain function and independence.</p>
+                        <p class="fs-5">Through guided video consultations and advanced rehab software, we create a comprehensive recovery plan tailored to your specific needs and goals.</p>
+                        
+                        <div class="mt-5">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-teal-primary rounded-circle p-2 me-3">
+                                    <i class="fas fa-check text-white"></i>
+                                </div>
+                                <p class="mb-0">Personalized recovery plans</p>
+                            </div>
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="bg-teal-primary rounded-circle p-2 me-3">
+                                    <i class="fas fa-check text-white"></i>
+                                </div>
+                                <p class="mb-0">Family and caregiver support</p>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <div class="bg-teal-primary rounded-circle p-2 me-3">
+                                    <i class="fas fa-check text-white"></i>
+                                </div>
+                                <p class="mb-0">Progress tracking and adjustments</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6" data-aos="fade-left">
+                        <div class="rehab-image-container" style="background-image: url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80'); height: 500px;"></div>
+                    </div>
+                </div>
+                
+                <div class="row mt-5">
+                    <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="rehab-visual-card">
+                            <div class="rehab-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h4>Cognitive Recovery</h4>
+                            <p>Memory, attention, and executive function exercises tailored to your cognitive needs and recovery stage.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="rehab-visual-card">
+                            <div class="rehab-icon">
+                                <i class="fas fa-walking"></i>
+                            </div>
+                            <h4>Mobility Restoration</h4>
+                            <p>Targeted exercises to improve balance, coordination, and movement patterns for daily activities.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="rehab-visual-card">
+                            <div class="rehab-icon">
+                                <i class="fas fa-hands-helping"></i>
+                            </div>
+                            <h4>Family Integration</h4>
+                            <p>Training and support for family members to assist with exercises and daily functional tasks.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EduHub Section - Redesigned -->
+        <section class="eduhub-section">
+            <div class="container">
+                <h2 class="services-section-title text-center mb-5">Knowledge Hub</h2>
+                <p class="text-center mb-5 fs-5">
+                    Empowering your recovery journey with expert resources, practical guides, and evidence-based information
+                </p>
+                
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="eduhub-visual-card">
+                            <div class="eduhub-icon">
+                                <i class="fas fa-user-md"></i>
+                            </div>
+                            <h4>Expert Guidance</h4>
+                            <p>Access our library of video tutorials, articles, and Q&A sessions with our specialist physiotherapists.</p>
+                            <div class="mt-3">
+                                <span class="badge bg-teal-primary">New Content Weekly</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="eduhub-visual-card">
+                            <div class="eduhub-icon">
+                                <i class="fas fa-dumbbell"></i>
+                            </div>
+                            <h4>Exercise Library</h4>
+                            <p>Comprehensive collection of rehabilitation exercises with detailed instructions and video demonstrations.</p>
+                            <div class="mt-3">
+                                <span class="badge bg-sage-green">200+ Exercises</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="eduhub-visual-card">
+                            <div class="eduhub-icon">
+                                <i class="fas fa-book-medical"></i>
+                            </div>
+                            <h4>Recovery Resources</h4>
+                            <p>Evidence-based guides on injury prevention, pain management, and optimizing your recovery process.</p>
+                            <div class="mt-3">
+                                <span class="badge bg-gold">Premium Content</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section - Redesigned -->
+        <section class="services-cta-section">
+            <div class="floating-element" style="top: 15%; left: 10%; width: 150px; height: 150px;"></div>
+            <div class="floating-element" style="bottom: 20%; right: 8%; width: 120px; height: 120px;"></div>
+            
+            <div class="container">
+                <div class="cta-content" data-aos="fade-up">
+                    <h2 class="mb-4">Begin Your Recovery Journey Today</h2>
+                    <p class="mb-4 fs-5">
+                        Join hundreds of patients who have transformed their lives with our personalized online physiotherapy programs. Experience the future of rehabilitation from the comfort of your home.
+                    </p>
+                    <a href="#" class="btn btn-light btn-lg me-3 pulse-animation">Start Your Assessment</a>
+                    <a href="contact.html" class="btn btn-outline-light btn-lg">Speak to Our Team</a>
+                    
+               
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4 mb-5 mb-lg-0">
-            <h4 class="footer-heading">CoreMotion</h4>
-            <p class="mb-4">Recovery made simple. Movement made powerful.</p>
-            <p class="mb-3">
-              <i class="fas fa-map-marker-alt me-2"></i> Bangalore, India
-            </p>
-            <p class="mb-3">
-              <i class="fas fa-phone me-2"></i> +91 98765 43210
-            </p>
-            <p class="mb-0">
-              <i class="fas fa-envelope me-2"></i> hello@coremotion.com
-            </p>
-          </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <h4 class="footer-heading">CoreMotion</h4>
+                    <p class="mb-4">Recovery made simple. Movement made powerful.</p>
+                    <p class="mb-3">
+                        <i class="fas fa-map-marker-alt me-2"></i> Bangalore, India
+                    </p>
+                    <p class="mb-3">
+                        <i class="fas fa-phone me-2"></i> +91 98765 43210
+                    </p>
+                    <p class="mb-0">
+                        <i class="fas fa-envelope me-2"></i> hello@coremotion.com
+                    </p>
+                </div>
 
-          <div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
-            <h4 class="footer-heading">Quick Links</h4>
-            <ul class="list-unstyled">
-              <li class="mb-2"><a href="#">About Us</a></li>
-              <li class="mb-2"><a href="#">Services</a></li>
-              <li class="mb-2"><a href="#">Team</a></li>
-              <li class="mb-2"><a href="#">Journal</a></li>
-              <li class="mb-0"><a href="#">Contact</a></li>
-            </ul>
-          </div>
+                <div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#">Home</a></li>
+                        <li class="mb-2"><a href="#">About Us</a></li>
+                        <li class="mb-2"><a href="#">Services</a></li>
+                        <li class="mb-2"><a href="#">Team</a></li>
+                        <li class="mb-0"><a href="#">Contact</a></li>
+                    </ul>
+                </div>
 
-          <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-            <h4 class="footer-heading">Our Services</h4>
-            <ul class="list-unstyled">
-              <li class="mb-2"><a href="#"> Physiotherapy </a></li>
-              <li class="mb-2"><a href="#">Rehabilitation</a></li>
-              <li class="mb-2"><a href="#">Fitness</a></li>
-              <li class="mb-2"><a href="#">EduHub</a></li>
-            </ul>
-          </div>
+                <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                    <h4 class="footer-heading">Our Services</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#"> Physiotherapy </a></li>
+                        <li class="mb-2"><a href="#">Rehabilitation</a></li>
+                        <li class="mb-2"><a href="#">Ergonomics</a></li>
+                        <li class="mb-2"><a href="#">EduHub</a></li>
+                    </ul>
+                </div>
 
-          <div class="col-lg-3">
-            <h4 class="footer-heading">Connect With Us</h4>
-            <div class="social-icons mb-4">
-              <a href="#"><i class="fab fa-linkedin-in"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-              <a href="#"><i class="fab fa-youtube"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
+                <div class="col-lg-3">
+                    <h4 class="footer-heading">Connect With Us</h4>
+                    <div class="social-icons mb-4">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                    <p class="mb-3">
+                        Subscribe to our newsletter for health tips and updates:
+                    </p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Your email address">
+                        <button class="btn btn-teal" type="button">Subscribe</button>
+                    </div>
+                </div>
             </div>
-            <p class="mb-3">
-              Subscribe to our newsletter for health tips and updates:
-            </p>
-            <div class="input-group mb-3">
-              <input
-                type="email"
-                class="form-control"
-                placeholder="Your email address"
-              />
-              <button class="btn btn-teal" type="button">Subscribe</button>
+
+            <hr class="my-5" style="border-color: rgba(255, 255, 255, 0.1)">
+
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">
+                        &copy; 2025 CoreMotion - The Online Physiotherapist. All rights reserved.
+                    </p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="d-flex justify-content-center justify-content-md-end">
+                        <p>Made with <span>&#10084;</span> by</p>
+                        <a href="#" class="me-3">&nbsp;GPT Software</a>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-
-        <hr class="my-5" style="border-color: rgba(255, 255, 255, 0.1)" />
-
-        <div class="row align-items-center">
-          <div class="col-md-6 text-center text-md-start">
-            <p class="mb-0">
-              &copy; 2025 CoreMotion - The Online Physiotherapist. All rights
-              reserved.
-            </p>
-          </div>
-          <div class="col-md-6 text-center text-md-end">
-            <div class="d-flex justify-content-center justify-content-md-end">
-              <p>Made with <span>&#10084;</span> by</p>
-              <a href="#" class="me-3">&nbsp;GPT Software</a>
-              <!-- <a href="#" class="me-3">Terms of Service</a> -->
-            </div>
-          </div>
-        </div>
-      </div>
     </footer>
 
     <!-- Bootstrap JS -->
@@ -207,9 +1153,61 @@
     <!-- AOS JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    <!-- Glide.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/glide.min.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100,
+        });
 
- 
-  </body>
+        // Navbar scroll effect
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 50) {
+                document.querySelector(".navbar").classList.add("scrolled");
+            } else {
+                document.querySelector(".navbar").classList.remove("scrolled");
+            }
+        });
+
+        // Add click functionality for mobile devices on flip cards
+        document.querySelectorAll('.condition-visual-card').forEach(card => {
+            card.addEventListener('click', function() {
+                if (window.innerWidth < 992) {
+                    this.querySelector('.condition-card-inner').classList.toggle('flipped');
+                }
+            });
+        });
+
+        // Floating elements animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const floatingElements = document.querySelectorAll('.floating-element');
+            floatingElements.forEach((el, index) => {
+                el.style.animation = `float ${3 + index * 0.5}s ease-in-out infinite alternate`;
+            });
+        });
+
+        // Add CSS for floating animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes float {
+                0% { transform: translateY(0) translateX(0); }
+                100% { transform: translateY(-20px) translateX(10px); }
+            }
+            
+            .bg-teal-primary {
+                background-color: var(--teal-primary);
+            }
+            
+            .bg-sage-green {
+                background-color: var(--sage-green);
+            }
+            
+            .bg-gold {
+                background-color: var(--gold);
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
 </html>
